@@ -20,14 +20,13 @@ const longitude = document.querySelector('#lon');
 const fu = document.querySelector('#fu');
 const localTime = document.querySelector('#localtime');
 const cloud = document.querySelector('#cloud');
+const url = 'https://api.giphy.com/v1/gifs/translate?api_key=SwX8Xw5ch6JuKYsNPbyctL7KJgq7d3J3&s=weather';
 
 function defaultWeather() {
   fetch('https://api.weatherapi.com/v1/current.json?key=01c21fc75230474f9e1172231240303&q=maputo', {
-    mode: 'cors'
+    mode: 'cors',
   })
-    .then((response) => {
-      return response.json();      
-    })
+    .then((response) => response.json())
     .then((response) => {
       title.textContent = response.current.condition.text;
       images.src = response.current.condition.icon;
@@ -49,17 +48,32 @@ function defaultWeather() {
       fu.textContent = response.location.tz_id;
       localTime.textContent = response.location.localtime;
       cloud.textContent = `${response.current.cloud}%`;
-    })
+    });
 }
-defaultWeather()
 
- async function searchWeather() {
+function displayBackground() {
+  const body = document.querySelector('body');
+  fetch(url, { mode: 'cors' })
+    .then((response) => response.json())
+    .then((response) => {
+      body.style.cssText = `
+      background-image: url(${response.data.images.original.url});
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      `;
+
+      defaultWeather();
+    });
+}
+displayBackground();
+
+async function searchWeather() {
   const searchCity = searchInput.value;
 
   if (!searchCity) {
     // eslint-disable-next-line no-alert
-      alert('Por favor insira uma cidade valida');
-      
+    alert('Por favor insira uma cidade valida');
   } else {
     fetch(
       `https://api.weatherapi.com/v1/current.json?key=01c21fc75230474f9e1172231240303&q=${searchCity}`,
