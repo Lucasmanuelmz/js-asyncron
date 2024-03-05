@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header>
+        <ul class="list">
+          <li id="title"></li>
+          <li id="localtime"></li>
+          <li><span id="fu"></span></li>
+        </ul>
+    </header>
+    <main class="container">
+      <div class="search-city">
+        <input
+          type="search"
+          name=""
+          placeholder="Search weather for you city"
+          id="search-input"
+        />
+        <button id="search-button" type="submit">Search</button>
+       </div>
+        <div class="weather-content"> 
+           <div class="weather-image">
+          <img src="" alt="" class="weather" />
+          <p>Nuvens <span id="cloud"></span></p>
+          </div>
+          <div class="weather-info">
+            <div class="current-info">
+             <h4>informações meteolorógicas</h4>
+            <p>Ultima atualizacao: <span id="last-updated"></span></p>
+            <p>Temperatura: <span id="temp"></span></p>
+            <p>Sensação térmica: <span id="feelslike-c"></span></p>
+            <p>Umidade: <span id="umid"></span></p>
+            <p>Pressão atmosférica: <span id="pressure-in"></span></p>
+            <p>Velocidade do vento: <span id="wind-kph"></span></p>
+            <p>Rajada de vento: <span id="gust-kph"></span></p>
+            <p>Precipitação: <span id="precip-mm"></span></p>
+            <p>Visibilidade: <span id="vis-km"></span></p>
+            <p>Índice UV: <span id="uv"></span></p>
+          </div>
+            <div class="local-zone">
+            <h4>Região</h4>
+            <p>País: <span id="country"></span></p>
+            <p>Localidade: <span id="local-name"></span></p>
+            <p>Região: <span id="region"></span></p>
+            <h3>Coordenadas geográficas:</h3>
+            <p>Latitude: <span id="lat"></span></p>
+            <p>Longitude: <span id="lon"></span></p></span>
+        </div>
+        </div>
+      </div>
+    </main>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
