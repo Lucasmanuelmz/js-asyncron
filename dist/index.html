@@ -1,11 +1,82 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Output Management</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script defer src="index.bundle.js"></script>
-    <script defer src="print.bundle.js"></script>
-  </head>
-  <body></body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+  <script defer src="/runtime.bundle.js"></script><script defer src="/index.bundle.js"></script><script defer src="/print.bundle.js"></script><script defer src="/style.bundle.js"></script><link href="/index.css" rel="stylesheet"><link href="/style.css" rel="stylesheet"></head>
+  <body>
+    <header>
+        <ul class="list">
+          <li id="title"></li>
+          <li id="localtime"></li>
+          <li><span id="fu"></span></li>
+        </ul>
+        <nav class="nav-bar">
+        <a id="logo-app" href="#index.html">Weather App</a>
+        <div class="search-city">
+        <input
+          type="search"
+          name=""
+          placeholder="Search weather for you city"
+          id="search-input"
+        />
+        <button id="search-button" type="submit">Search</button>
+       </div>
+       <a id="sign-up" class="link-btn" href="form.html">Inscreva se</a>
+       <a class="link-btn" href="#">Entrar</a>
+      </nav>
+    </header>
+    <div class="splash">
+      <h2 class="text-splash">Por favor aguarde...</h2>
+      <div class="animations">
+      <div class="anim-splash"></div>
+      <div class="anim-splash"></div>
+      <div class="anim-splash"></div>
+    </div>
+    </div>
+    <main class="container">
+      <div id="container">
+        <div class="weather-image">
+          <img src="" alt="" class="weather" />
+          <p class="cloud">Nuvens <span id="cloud"></span></p>
+          </div>
+          <div class="tod">
+            <p id="today">Max:</p>
+            <span id="temp"></span>
+          </div>
+         
+
+      </div>
+      <div class="weather-content"> 
+          
+          <div class="weather-info">
+            <div class="current-info">
+             <h4>Detalhes meteolorógicas</h4>
+            <p>Ultima atualizacao: <span id="last-updated"></span></p>
+            <p>Sensação térmica: <span id="feelslike-c"></span></p>
+            <p>Umidade: <span id="umid"></span></p>
+            <p>Pressão atmosférica: <span id="pressure-in"></span></p>
+            <p>Velocidade do vento: <span id="wind-kph"></span></p>
+            <p>Rajada de vento: <span id="gust-kph"></span></p>
+            <p>Precipitação: <span id="precip-mm"></span></p>
+            <p>Visibilidade: <span id="vis-km"></span></p>
+            <p>Índice UV: <span id="uv"></span></p>
+          </div>
+            <div class="local-zone">
+            <h4>Região</h4>
+            <p>País: <span id="country"></span></p>
+            <p>Localidade: <span id="local-name"></span></p>
+            <p>Região: <span id="region"></span></p>
+            <h3>Coordenadas</h3>
+            <p>Latitude: <span id="lat"></span></p>
+            <p>Longitude: <span id="lon"></span></p></span>
+        </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy;Lucas Manuel 2024</p>
+    </footer>
+  </body>
 </html>

@@ -3,12 +3,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const toml = require("toml");
 const yaml = require("yamljs");
 const json5 = require("json5");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "development",
   entry: {
     index: "./src/index.js",
     print: "./src/print.js",
+    style: './src/css/style.css',
   },
   devtool: "inline-source-map",
   devServer: {
@@ -18,6 +20,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Development",
       template: "index.html",
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'form.html',
+      title: "Sing up",
+      template: "./src/form.html",
+    }),
+
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
     }),
   ],
   output: {
@@ -33,7 +44,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,

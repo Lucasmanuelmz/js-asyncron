@@ -24,7 +24,7 @@ export default function myAppWeb() {
   const url =
     "https://api.giphy.com/v1/gifs/translate?api_key=SwX8Xw5ch6JuKYsNPbyctL7KJgq7d3J3&s=weather";
 
-  function defaultWeather() {
+ function defaultWeather() {
     fetch(
       "https://api.weatherapi.com/v1/current.json?key=01c21fc75230474f9e1172231240303&q=maputo",
       {
@@ -61,12 +61,14 @@ export default function myAppWeb() {
     fetch(url, { mode: "cors" })
       .then((response) => response.json())
       .then((response) => {
+       if (response.data && response.data.images && response.data.images.original && response.data.images.original.url) {
         body.style.cssText = `
-      background-image: url(${response.data.images.original.url});
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      `;
+          background-image: url(${response.data.images.original.url});
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        `;
+      }
 
         defaultWeather();
       });
@@ -114,7 +116,8 @@ export default function myAppWeb() {
           cloud.textContent = `${response.current.cloud}%`;
         })
         .catch((error) => {
-          console.error("ERRO:", error);
+          console.log('Name: '+error.name);
+          console.log('Message: '+error.message)
         });
     }
   }
