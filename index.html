@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
-    <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
     <header>
@@ -13,9 +12,9 @@
           <li id="localtime"></li>
           <li><span id="fu"></span></li>
         </ul>
-    </header>
-    <main class="container">
-      <div class="search-city">
+        <nav class="nav-bar">
+        <a id="logo-app" href="#index.html">Weather App</a>
+        <div class="search-city">
         <input
           type="search"
           name=""
@@ -24,13 +23,33 @@
         />
         <button id="search-button" type="submit">Search</button>
        </div>
-        <div class="weather-content"> 
-           <div class="weather-image">
+       <a class="link-btn" href="#">Inscreva se</a>
+       <a class="link-btn" href="#">Entrar</a>
+      </nav>
+    </header>
+    <div class="splash">
+      <h2 class="text-splash">Por favor aguarde...</h2>
+      <div class="animations">
+      <div class="anim-splash"></div>
+      <div class="anim-splash"></div>
+      <div class="anim-splash"></div>
+    </div>
+    </div>
+    <main class="container">
+      <div id="container">
+        <div class="weather-image">
           <img src="" alt="" class="weather" />
           <p class="cloud">Nuvens <span id="cloud"></span></p>
-          
           </div>
-          <p id="today">Hoje, <span id="temp"></span></p>
+          <div class="tod">
+            <p id="today">Max:</p>
+            <span id="temp"></span>
+          </div>
+         
+
+      </div>
+      <div class="weather-content"> 
+          
           <div class="weather-info">
             <div class="current-info">
              <h4>Detalhes meteolorógicas</h4>
@@ -56,6 +75,8 @@
         </div>
       </div>
     </main>
-    <script src="./js/scripts.js"></script>
+    <footer class="footer">
+      <p>&copy;Lucas Manuel 2024</p>
+    </footer>
   </body>
 </html>

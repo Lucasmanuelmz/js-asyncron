@@ -1,8 +1,9 @@
 import "./style.css";
 import myAppWeb from "./print.js";
+import displaySplash from "./splash.js";
 
-function component() {
+function app() {
+  displaySplash(),
   myAppWeb();
 }
-
-document.body.appendChild(component());
+app()
