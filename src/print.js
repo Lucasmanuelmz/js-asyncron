@@ -94,6 +94,9 @@ export default function myAppWeb() {
           }
         })
         .then((response) => {
+          if (title && images && temperature && humidity && lastUpdated && feelslikeC &&
+            uv && visKm && windKph && precipitation && gustKph && pressureIn && country &&
+            localName && region && latitude && longitude && fu && localTime && cloud) {
           title.textContent = response.current.condition.text;
           images.src = response.current.condition.icon;
           temperature.textContent = `${response.current.temp_c}°C`;
@@ -113,7 +116,10 @@ export default function myAppWeb() {
           longitude.textContent = response.location.lon;
           fu.textContent = response.location.tz_id;
           localTime.textContent = response.location.localtime;
-          cloud.textContent = `${response.current.cloud}%`;
+            cloud.textContent = `${response.current.cloud}%`;
+          } else {
+            console.log('Alguma classe nao esta disponinel')
+         }
         })
         .catch((error) => {
           console.log('Name: '+error.name);
@@ -123,3 +129,6 @@ export default function myAppWeb() {
   }
   searchButton.addEventListener("click", searchWeather);
 }
+document.addEventListener('DOMContentLoaded', () => {
+  myAppWeb();
+})

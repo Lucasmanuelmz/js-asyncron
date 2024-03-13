@@ -25,6 +25,13 @@ module.exports = {
       filename: 'form.html',
       title: "Sing up",
       template: "./src/form.html",
+      excludeChunks: ["print"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'sign.html',
+      title: "Sing up",
+      template: "./src/sign.html",
+      excludeChunks: ["print"],
     }),
 
     new MiniCssExtractPlugin({
